@@ -1,0 +1,13 @@
+Vdd = float(input("Enter supply voltage (Vdd): "))
+Id = float(input("Enter drain current (Id): "))
+Rd = float(input("Enter drain resistor (Rd): "))
+
+
+Vgs = Vdd - Id * Rd
+
+
+Vds = Vgs
+
+
+print("Gate-Source Voltage (Vgs): {:.4f} V".format(Vgs))
+print("Drain-Source Voltage (Vds): {:.4f} V".format(Vds))
