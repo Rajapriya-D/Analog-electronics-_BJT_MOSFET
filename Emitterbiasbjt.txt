@@ -1,0 +1,26 @@
+Vcc= float(input("Enter Vcc: "))
+Vbe = float(input("Enter Vbe: "))
+Ic = float(input("Enter Ic (Collector Current): "))
+beta = float(input("Enter  (β) value: "))
+Rb = float(input("Enter Rb (Base Resistor): "))
+Re=float(input("Enter Re(Emitter Resistor):"))
+Rc=float (input("Enter Rc(Collector Resistor):"))
+Ib = (Vcc - Vbe) / (Rb + (beta + 1) * Re)
+
+if Ic==0:
+    Ic = beta * Ib
+elif beta==0:
+    beta=Ic/Ib
+Vce = Vcc - Ic * (Rc + Re)
+
+if Re==0:
+   Re = (Vcc - Vbe) / (Ib - (Vcc / (Rb * (beta + 1))))
+elif Rb==0:
+    Rb = (Vcc - Vbe) / Ib - (beta + 1) * Re
+
+print(f"Ib: {Ib}")
+print(f"Ic: {Ic}")
+print(f"Vce: {Vce}")
+print(f"Estimated beta (β): {beta}")
+print(f"Calculated Re (Emitter Resistor): {Re}")
+print(f"Estimated Rb (Base Resistor): {Rb}")
