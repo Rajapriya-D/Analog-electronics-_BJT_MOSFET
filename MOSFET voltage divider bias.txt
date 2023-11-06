@@ -1,0 +1,20 @@
+Vdd = float(input("Enter supply voltage (Vdd): "))
+R1 = float(input("Enter resistor R1 (Ω): "))
+R2 = float(input("Enter resistor R2 (Ω): "))
+Id = float(input("Enter drain current (Id): "))
+Rs = float(input("Enter source resistor (Rs): "))
+Vgs=float(input("Enter gate-source voltage(Vgs)"))
+
+Vg = (R2 * Vdd) / (R1 + R2)
+
+if Vgs==0:
+    Vgs = Vg - Id * Rs
+elif Id==0:
+    Id = (Vg - Vgs) / Rs
+elif Rs==0:
+    Rs = (Vg - Vgs) / Id
+
+print("Gate Voltage (Vg): {:.4f} V".format(Vg))
+print("Gate-Source Voltage (Vgs): {:.4f} V".format(Vgs))
+print("Drain Current (Id): {:.4f} A".format(Id))
+print("Source Resistor (Rs): {:.4f} Ω".format(Rs))
