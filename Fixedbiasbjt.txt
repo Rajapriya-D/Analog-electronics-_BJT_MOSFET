@@ -1,0 +1,25 @@
+Vcc = float(input("Enter supply voltage (Vcc) in volts: "))
+Vbe = float(input("Enter base-emitter voltage (Vbe) in volts: "))
+Rc = float(input("Enter collector resistor (Rc) in ohms: "))
+beta = float(input("Enter transistor's beta value: "))
+Ic=float(input("Enter collector current value:"))
+Ib=float(input("Enter base current value:"))
+Rb = float(input("Enter base resistor (Rb) in ohms: "))
+if Ib==0:
+    Ib = (Vcc - Vbe) / Rb
+elif Rb==0:
+    Rb=(vcc-vbe)/Ib
+if Ic==0:
+    Ic = beta*Ib
+elif beta==0:
+    beta=Ic/Ib
+
+Vce = Vcc - Ic * Rc
+
+
+print(f"Ib = {Ib} A")
+print(f"Ic = {Ic} A")
+print(f"Vce = {Vce} V")
+print(f"Rb = {Rb} ohms")
+print(f"Rc = {Rc} ohms")
+print(f"beta={beta}")
