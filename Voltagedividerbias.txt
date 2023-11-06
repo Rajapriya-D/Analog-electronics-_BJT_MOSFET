@@ -1,0 +1,26 @@
+Eth = float(input("Enter the source voltage (Eth) in volts: "))
+Vbe = float(input("Enter the base-emitter voltage drop (Vbe) in volts: "))
+Rth = float(input("Enter the total resistance in the base circuit (Rth) in ohms: "))
+Vcc = float(input("Enter the supply voltage (Vcc) in volts: "))
+Beta = float(input("Enter the transistor's current gain (Beta): "))
+Re = float(input("Enter the emitter resistor (Re) in ohms: "))
+Rc = float(input("Enter the collector resistor (Rc) in ohms: "))
+Ic=float(input("Enter the collector current:"))
+
+
+Ib = (Eth - Vbe) / (Rth + Beta * (Rc + Re))
+
+if Ic==0:
+    Ic = Beta * Ib
+elif Beta==0:
+    Beta=Ic/Ib
+
+Vce = Vcc - Ic * (Rc + Re)
+
+
+print(f"Ib = {Ib} A")
+print(f"Ic = {Ic} A")
+print(f"Beta = {Beta}")
+print(f"Re = {Re} ohms")
+print(f"Rc = {Rc} ohms")
+print(f"Vce = {Vce} V")
